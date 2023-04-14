@@ -5,6 +5,9 @@ Examples used in class can be found in the following repository: https://github.
 Test cases are provided by @leosampaio for local code testing, available at: https://github.com/leosampaio/run-codes-local.
 
 **Assignment 01:** enhancement and superresolution
+
 **Assignment 02:** Fourier Transform
+
 **Assignment 03:** image descriptors
+
 **Assignment 04:** Mathematical morphology
