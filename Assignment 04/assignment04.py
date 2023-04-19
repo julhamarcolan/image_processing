@@ -77,7 +77,7 @@ def flood_fill_8n(x, y, img, target_color, coords_list):
         img[x][y] = fill_color
         coords_list.append([x,y])
 
-    # Recursive call from the 4-neighbors
+    # Recursive call from the 8-neighbors
     flood_fill_8n(x+1, y, img, target_color, coords_list)
     flood_fill_8n(x-1, y, img, target_color, coords_list)
     flood_fill_8n(x, y+1, img, target_color, coords_list)
