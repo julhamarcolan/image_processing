@@ -113,7 +113,7 @@ c = int(input().rstrip())
 # Creating a list to store the coordinates of the modified pixels
 coords_list = [] 
 
-# Selecting the correct connectivity value
+# STEP 2: Apling the Flood Fill Algorithm using specified connectivity c.
 if c == 4: 
     # Setting the correct start color in the seed pixel 
     target_color = img[x][y]
