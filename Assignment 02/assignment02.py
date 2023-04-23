@@ -21,12 +21,12 @@ def Ideal_Low_pass(f, r):
         the low frequencies using np.fft.fftshift. 
         2. The function creates a circular ideal low-pass filter in the frequency domain, with radius r:
         Given the function  D = np.sqrt((u- M/2)**2 + (v-N/2)**2), if D <= r -> H = 1 else H = 0. 
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal low-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the low-pass filter 
-        created by the function  in order to testing. 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
+        created by the function  in order to testing.
 
         Args: 
             - f: Input image to be filtered.
@@ -78,11 +78,11 @@ def Ideal_High_pass(f, r):
         the low frequencies using np.fft.fftshift. 
         2. The function creates a circular ideal high-pass filter in the frequency domain, with radius r:
         Given the function  D = np.sqrt((u- M/2)**2 + (v-N/2)**2), if D <= r -> H = 0 else H = 1.
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal high-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the high-pass filter 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
         created by the function  in order to testing. 
 
         Args: 
@@ -134,12 +134,11 @@ def Ideal_Band_pass(f, r1, r2):
         1. The function computes the 2D Fourier transform of the input image f using np.fft.fft2 and shifts the result to center 
         the low frequencies using np.fft.fftshift.
         2. Set the values in H to 1 if D is within the range [r1, r2], and 0 otherwise, effectively creating a band-pass filter.
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal 
-        band-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the high-pass filter 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
         created by the function  in order to testing.
 
         Args: 
@@ -194,12 +193,11 @@ def Laplacian_High_pass(f):
         the low frequencies using np.fft.fftshift.
         2. The function creates a Laplacian high pass filter in the frequency domain:
         H[u,v] = -4*(np.pi)**2*((u-M/2)**2 + (v-N/2)**2), and the filter is given by  H = 255 - H 
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal 
-        band-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the high-pass filter 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
         created by the function  in order to testing.
 
         Args: 
@@ -248,12 +246,11 @@ def Gaussian_Low_pass(f, sigma1, sigma2):
         the low frequencies using np.fft.fftshift.
         2. The function creates a Gaussian low pass filter in the frequency domain
         H[u,v] = np.exp(-x) where x = ((u - M/2)**2) / (2*sigma1**2) + ((v - N/2)**2) / (2*sigma2**2)
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal 
-        band-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the  filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the high-pass filter 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
         created by the function  in order to testing.
 
         Args: 
@@ -306,17 +303,16 @@ def Butterworth_low_pass(f, N0, D0):
         the low frequencies using np.fft.fftshift.
         2. The function creates a  filter in the frequency domain
         H[u,v] = 1 / (1 + (D/D0)**N0), where  D = np.sqrt((u-M/2)**2 + (v-N/2)**2)
-        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the ideal 
-        band-pass filter. 
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
         4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
         np.fft.ifftshift.
         5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
-        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the high-pass filter 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the   filter 
         created by the function  in order to testing.
 
         Args: 
             - f: Input image to be filtered.
-            - N0: order from the transfer function of the Butterworth lowpass filter. 
+            - N0: order from the transfer function of the Butterworth low pass filter. 
             - D0: distance from the origin.
 
         Returns: 
@@ -334,7 +330,7 @@ def Butterworth_low_pass(f, N0, D0):
     for u in range(M):
         for v in range(N):
             D = np.sqrt((u-M/2)**2 + (v-N/2)**2)
-            H[u,v] = 1 / (1 + (D/D0)**N0)
+            H[u,v] = 1 / (1 + (D/D0)**(2*N0))
     # Filtering the image 
     G = F * H 
 
@@ -354,9 +350,30 @@ def Butterworth_low_pass(f, N0, D0):
 
 def Butterworth_high_pass(f, N0, D0):
     """
-    
-    """
+        Apply  a  Butterworth High pass filter in the input image. 
 
+        STEPS: 
+        1. The function computes the 2D Fourier transform of the input image f using np.fft.fft2 and shifts the result to center 
+        the low frequencies using np.fft.fftshift.
+        2. The function creates a  filter in the frequency domain
+       H[u,v] = 1 / (1 + (D0/D)**(2*N0)), where  D = np.sqrt((u-M/2)**2 + (v-N/2)**2)
+        3. The filtered image is obtained  by element-wise multiplication of the Fourier transform of the input image and the filter. 
+        4. The inverse Fourier  transform is calculated using np.fft.ifft2 after shifting the filtered image back to the original position using 
+        np.fft.ifftshift.
+        5. The resulting filtered image g is then rescaled to the range [0-255] using min-max normalization, and converted to int32 data type. 
+        6. Besides the reconstructed image, the function also returns que magnitude of the Fourier Transform and the  filter created by the 
+        function  in order to testing.
+
+        Args: 
+            - f: Input image to be filtered.
+            - N0: order from the transfer function of Butterworth High pass filter. 
+            - D0: distance from the origin.
+
+        Returns: 
+            - np.abs(F): 2D array representing the magnitude of the  Fourier transform of the input image.
+            - H: 2D array representing the Butterworth High pass  filter in the frequency domain.
+            - g: Restored image. 
+    """
     # Computing the 2D Fourier transform of the input image f
     F = np.fft.fftshift(np.fft.fft2(f))
 
@@ -364,10 +381,11 @@ def Butterworth_high_pass(f, N0, D0):
     M, N = F.shape
     H = np.zeros((M, N), dtype=np.float32)
     
+    np.seterr(divide='ignore', invalid='ignore')
     for u in range(M):
         for v in range(N):
             D = np.sqrt((u-M/2)**2 + (v-N/2)**2)
-            H[u,v] = 1 / (1 + (D0/D)**N0)
+            H[u,v] = 1 / (1 + (D0/D)**(2*N0))
     # Filtering the image 
     G = F * H 
 
@@ -412,8 +430,7 @@ def RMSE(img_H, img_R):
 
 #--------------------------------------------------------------------------------------------------------------------------
 
-#STEP 1: Read the parameters (Input image I, Expected image H, Filter index i ∈ [0,1,2,3,4,5,6], Filter Parameters respective to 
-#each index)
+# STEP1: Read the parameters (Input image I, Expected image H, Filter index i ∈ [0,1,2,3,4,5,6]
 
 #Reading the input image I
 filenameI = input().rstrip()
@@ -427,11 +444,11 @@ img_H = imageio.imread(filenameH)
 #Reafing the filter index 
 index = int(input().rstrip())
 
-#Parameters respecindex == 0: tive to each index
+#STEP 2: Reading the arameters respective to each index and applying the filters 
 
 if index == 0: 
     # Ideal Low-pass
-    r = int(input().rstrip())
+    r = float(input().rstrip())
 
     #Applying the Low-pass filter 
     F, H, g = Ideal_Low_pass(img_I, r)
@@ -449,7 +466,7 @@ if index == 0:
 
 elif index == 1: 
     # Ideal High-pass
-    r = int(input().rstrip())
+    r = float(input().rstrip())
 
     #Applying the  High-pass  filter 
     F, H, g = Ideal_High_pass(img_I, r)
@@ -458,17 +475,17 @@ elif index == 1:
     print(RMSE_value)
 
     #Just  for testing
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
 
 elif index == 2: 
     # Ideal Band-pass
-    r1 = int(input().rstrip())
-    r2 = int(input().rstrip())
+    r1 = float(input().rstrip())
+    r2 = float(input().rstrip())
 
     #Applying the  Band-pass  filter 
     F, H, g = Ideal_Band_pass(img_I, r1, r2)
@@ -477,12 +494,12 @@ elif index == 2:
     print(RMSE_value)
 
     #Just  for testing
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
 
 elif index == 3 : 
     #Laplacian low-pass
@@ -493,17 +510,18 @@ elif index == 3 :
     RMSE_value = round(RMSE_value, 4)
     print(RMSE_value)
 
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #Just for testing
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
 
 elif index == 4: 
     # Gaussian Low-pass
-    sigma1 = int(input().rstrip())
-    sigma2 = int(input().rstrip())
+    sigma1 = float(input().rstrip())
+    sigma2 = float(input().rstrip())
     
     #Applying the Laplacian low-pass filter 
     F, H, g = Gaussian_Low_pass(img_I, sigma1, sigma2)
@@ -511,17 +529,18 @@ elif index == 4:
     RMSE_value = round(RMSE_value, 4)
     print(RMSE_value)
 
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #Just for testing 
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
 
 elif index == 5: 
     # Butterworth low-pass
-    D0 = int(input().rstrip())
-    N = int(input().rstrip())
+    D0 = float(input().rstrip())
+    N = float(input().rstrip())
 
     #Applying the  High-pass  filter 
     F, H, g = Butterworth_low_pass(img_I, N, D0)
@@ -530,16 +549,17 @@ elif index == 5:
     print(RMSE_value)
 
     #Just  for testing
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
+
 elif index == 6: 
     # Butterworth high-pass
-    D0 = int(input().rstrip())
-    N = int(input().rstrip())
+    D0 = float(input().rstrip())
+    N = float(input().rstrip())
 
     #Applying the  High-pass  filter 
     F, H, g = Butterworth_high_pass(img_I, N, D0)
@@ -548,11 +568,12 @@ elif index == 6:
     print(RMSE_value)
 
     #Just  for testing
-    plt.figure(figsize=(12,10))
-    plt.subplot(221); plt.imshow(img_I, cmap ='gray')
-    plt.subplot(222); plt.imshow(F, cmap ='gray')
-    plt.subplot(223); plt.imshow(H, cmap ='gray')
-    plt.subplot(224); plt.imshow(g, cmap ='gray')
-    plt.show()
+    #plt.figure(figsize=(12,10))
+    #plt.subplot(221); plt.imshow(img_I, cmap ='gray')
+    #plt.subplot(222); plt.imshow(F, cmap ='gray')
+    #plt.subplot(223); plt.imshow(H, cmap ='gray')
+    #plt.subplot(224); plt.imshow(g, cmap ='gray')
+    #plt.show()
+
 else: 
     print("Index not valid")
