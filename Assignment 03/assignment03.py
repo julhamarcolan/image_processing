@@ -1,6 +1,5 @@
 """Assignment 01:  image descriptors
     Name: Julia Marcolan Teixeira 
-    Usp Number: 10085370 
     Course code: MAI5021
     Year/semester: 2023.1
 

@@ -1,6 +1,5 @@
 """Assignment 01: enhancement and superresolution
     Name: Julia Marcolan Teixeira 
-    Usp Number: 10085370 
     Course code: MAI5020
     Year/semester: 2023.1
 
