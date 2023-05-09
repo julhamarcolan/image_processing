@@ -2,9 +2,9 @@ This repository contains tasks developed for the classes MAI5020 - Fundamentals 
 
 The repository includes PDF files for the assignments and input images provided by the professor. 
 
-Examples used in class can be found in the following repository: https://github.com/maponti/imageprocessing_course_icmc.
+The examples used in class can be found in the following repository: https://github.com/maponti/imageprocessing_course_icmc.
 
-Test cases are provided by @leosampaio for local code testing, available at: https://github.com/leosampaio/run-codes-local.
+Test cases are provided by @leosampaio for local code testing, and it is  available at: https://github.com/leosampaio/run-codes-local.
 
 **Assignment 01:** enhancement and superresolution
 
